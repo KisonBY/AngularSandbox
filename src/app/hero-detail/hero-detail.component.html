@@ -1,0 +1,15 @@
+<button (click)="goBack()">Go Back</button>
+<div *ngIf="!hero" [style.paddingTop]="'10px'">
+  <spinner name="heroGridSpinner" loadingImage="assets/images/spinner-progress-bar.gif" [show]="!hero"> Loading hero details...</spinner>
+</div>
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}}'s Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </label>
+  </div>
+  <button (click)="save()">Save</button>
+  <spinner name="heroSaveSpinner" loadingImage="assets/images/spinner-progress-bar.gif" [(show)]="showSaveSpinner"></spinner>
+</div>

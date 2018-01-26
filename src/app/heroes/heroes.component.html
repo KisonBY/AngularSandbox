@@ -1,0 +1,18 @@
+<h2>My Heroes</h2>
+<div>
+  <label>Hero name:
+    <input #heroName (keyup.enter)="add(heroName.value); heroName.value='';" />
+  </label>
+  <button (click)="add(heroName.value); heroName.value='';">Add</button>
+  <spinner name="addHeroSpinner" loadingImage="assets/images/spinner-progress-bar.gif" [(show)]="showAddHeroSpinner"></spinner>
+</div>
+<spinner name="heroListSpinner" loadingImage="assets/images/spinner-progress-bar.gif" [(show)]="showListSpinner"> Loading heroes list...</spinner>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" @flyInOut>
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero" (click)="delete(hero)">X</button>
+    <spinner class="delete-spinner" name="deleteHeroSpinner-{{hero.id}}" loadingImage="assets/images/spinner-progress-bar.gif"></spinner>
+  </li>
+</ul>

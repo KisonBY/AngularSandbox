@@ -1,0 +1,4 @@
+<span class="main-spinner-container" *ngIf="show">
+  <img class="spinner-image" *ngIf="loadingImage" [src]="loadingImage" />
+  <ng-content></ng-content>
+</span>
